@@ -30,47 +30,119 @@ public class BinarySearchTree {
 		   root=null;
 	  }
 	  
-	  public void addNode(int data)
+	  public void inOrder(Node n) 
 	  { 
-		  if(root==null)
-		  {
-			  root=new Node(data);
+		  if(n==null) 
+		  { 
 			  return;
-			  
 		  }
-		  
-			  Node current=root;
-			  Node parent=null;
-			  while(true)
-			  { 
-				  parent=current;
-				  if(data<current.data)
-				  { 
-					  current=current.left;
-					  if(current==null) 
-					  { 
-						  Node n=new Node(data);
-						  parent.left=n;
-						  return;
-					  }
-				  }
-				  if(data>current.data)
-				  { 
-					  current=current.right;
-					  if(current==null)
-					  { 
-						  Node n=new Node(data);
-						  parent.right=n;
-						  return;
-					  }
-				  }
-				  
-				  
-				  
-			  }
-		  
+		  else
+		  { 
+			  inOrder(n.left);
+			  System.out.println(n.data);
+			  inOrder(n.right);
+		  }
 	  }
+	  public void preOrder(Node n) 
+	  { 
+		  if(n==null) 
+		  { 
+			  return;
+		  }
+		  else
+		  { 
+			  System.out.println(n.data);
+			  preOrder(n.left);
+			  preOrder(n.right);
+		  }
+	  }
+	  public void postOrder(Node n) 
+	  { 
+		  if(n==null) 
+		  { 
+			  return;
+		  }
+		  else
+		  {
+			  postOrder(n.left);
+			  postOrder(n.right);
+			  System.out.println(n.data);
+		  }
+	  }
+//	  public void addNode(int data)
+//	  { 
+//		  if(root==null)
+//		  {
+//			  root=new Node(data);
+//			  return;
+//			  
+//		  }
+//		  
+//			  Node current=root;
+//			  Node parent=null;
+//			  while(true)
+//			  { 
+//				  parent=current;
+//				  if(data<current.data)
+//				  { 
+//					  current=current.left;
+//					  if(current==null) 
+//					  { 
+//						  Node n=new Node(data);
+//						  parent.left=n;
+//						  return;
+//					  }
+//				  }
+//				  if(data>current.data)
+//				  { 
+//					  current=current.right;
+//					  if(current==null)
+//					  { 
+//						  Node n=new Node(data);
+//						  parent.right=n;
+//						  return;
+//					  }
+//				  }
+//				  else
+//				  {
+//					  return;
+//				  }
+//				  
+//				  
+//			  }
+//		  
+//	  }
+//	  
 	  
+	  public void addNode(int data) { 
+		    if (root == null) {
+		        root = new Node(data);
+		        return;
+		    }
+
+		    Node current = root;
+		    Node parent = null;
+
+		    while (true) { 
+		        parent = current;
+		        if (data < current.data) { 
+		            current = current.left;
+		            if (current == null) { 
+		                parent.left = new Node(data);
+		                return;
+		            }
+		        } else if (data > current.data) { 
+		            current = current.right;
+		            if (current == null) { 
+		                parent.right = new Node(data);
+		                return;
+		            }
+		        } else {
+		            // If data is equal, you can choose to ignore it or handle it as needed
+		            return; // Do nothing for duplicates
+		        }
+		    }
+		}
 	  public Node getRoot() 
 	  {
 		  return root;
@@ -84,14 +156,19 @@ public class BinarySearchTree {
 		BinarySearchTree bs=new BinarySearchTree();
 		bs.addNode(10);
 		bs.addNode(7);
+		bs.addNode(8);
 		bs.addNode(11);
 		bs.addNode(6);
 		bs.addNode(4);
 		System.out.println("root-->"+bs.getRoot().data);
 		System.out.println("left--->"+bs.getRoot().left.data);
 		System.out.println("right------>"+bs.getRoot().right.data);
-		System.out.println("left of left "+bs.getRoot().left.left.data);
 		
+		bs.inOrder(bs.getRoot());
+		System.out.println("pre order traversal");
+		bs.preOrder(bs.getRoot());
+		System.out.println("post order traversal");
+		bs.postOrder(bs.getRoot());
 	}
 
 }
