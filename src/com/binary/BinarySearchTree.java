@@ -1,5 +1,8 @@
 package com.binary;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node
 { 
 	int data;
@@ -42,6 +45,26 @@ public class BinarySearchTree {
 			  System.out.println(n.data);
 			  inOrder(n.right);
 		  }
+	  }
+	  public Node findNode(int data)
+	  { 
+		  
+		   for(Node current=getRoot();current!=null;current=current.left) 
+		   { 
+			   if(data==current.data)
+			   { 
+				   return current;
+			   }
+			   
+		   }
+		   for(Node current=getRoot();current!=null;current=current.right)
+		   { 
+			   if(data==current.data)
+			   { 
+				   return current;
+			   }
+		   }
+		   return null;
 	  }
 	  public void preOrder(Node n) 
 	  { 
@@ -143,6 +166,33 @@ public class BinarySearchTree {
 		        }
 		    }
 		}
+	  
+	  public void levelOrderTraversing() 
+	  { 
+		  Queue<Node> 	queue=new LinkedList();
+		  queue.add(root);
+		  while(!queue.isEmpty()) 
+		  {
+			  Node n=queue.poll();
+			  System.out.println(n.data);
+			  if(n.left!=null)
+			  { 
+				  queue.add(n.left);
+			  }
+			  if(n.right!=null)
+			  { 
+				  queue.add(n.right);
+			  }
+		  }
+		  
+	  }
+	
+	  public void delete(int data)
+	  { 
+		  Node n=findNode(data);
+	     	  
+	  }
+	  
 	  public Node getRoot() 
 	  {
 		  return root;
@@ -154,12 +204,14 @@ public class BinarySearchTree {
 		// TODO Auto-generated method stub
 
 		BinarySearchTree bs=new BinarySearchTree();
-		bs.addNode(10);
+		bs.addNode(5);
+		bs.addNode(3);
 		bs.addNode(7);
-		bs.addNode(8);
-		bs.addNode(11);
-		bs.addNode(6);
+		bs.addNode(2);
+		
 		bs.addNode(4);
+		bs.addNode(6);
+		bs.addNode(8);
 		System.out.println("root-->"+bs.getRoot().data);
 		System.out.println("left--->"+bs.getRoot().left.data);
 		System.out.println("right------>"+bs.getRoot().right.data);
@@ -169,6 +221,8 @@ public class BinarySearchTree {
 		bs.preOrder(bs.getRoot());
 		System.out.println("post order traversal");
 		bs.postOrder(bs.getRoot());
+		System.out.println("level order traversal");
+		bs.levelOrderTraversing();
 	}
 
 }
