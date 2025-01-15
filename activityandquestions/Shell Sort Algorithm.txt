@@ -1,0 +1,38 @@
+Shell Sort Algorithm
+Shell Sort is an in-place comparison-based sorting algorithm that generalizes insertion sort to allow the exchange of items that are far apart. The idea is to arrange the list of elements so that, starting anywhere, taking every ( h^{th} ) element produces a sorted list. This is done by using a gap sequence to determine which elements to compare and swap.
+
+Stepwise Algorithm for Shell Sort
+Choose a Gap Sequence:
+
+Start with a large gap and reduce it until it becomes 1. A common choice is to use the sequence ( n/2, n/4, \ldots, 1 ).
+Perform a Gapped Insertion Sort:
+
+For each gap, perform an insertion sort on the elements that are ( h ) positions apart.
+For each element in the array, compare it with the elements that are ( h ) positions before it and insert it into the correct position.
+Repeat:
+
+Reduce the gap and repeat the process until the gap is 1.
+Final Pass:
+
+When the gap is 1, the array will be sorted using a standard insertion sort.
+Pseudocode for Shell Sort
+plaintext
+
+Verify
+
+Open In Editor
+Run
+Copy code
+function shellSort(array):
+    n = length(array)
+    gap = n / 2
+
+    while gap > 0:
+        for i from gap to n-1:
+            temp = array[i]
+            j = i
+            while j >= gap and array[j - gap] > temp:
+                array[j] = array[j - gap]
+                j = j - gap
+            array[j] = temp
+        gap = gap / 2

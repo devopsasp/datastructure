@@ -1,0 +1,16 @@
+#####################################################
+View the below class 
+
+class Employee
+ { 
+   private int eid;
+   private String employeeName;
+   //add getter setter methods ,parameterized constructor and toString
+  }
+  
+  
+  #Create a LinkedList and add the objects above class to linkedList 
+  #Create two methods sortByEmployeeId to sort the objects as per employeeId 
+   and sortByEmployeeName to sort objects as per employeeName in linkedList
+   
+  

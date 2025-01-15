@@ -1,0 +1,21 @@
+   view the class below 
+
+  class Employee
+ { 
+  private int employeeId;
+  private String name;
+//getter setter methods and constructor
+ } 
+
+    The details of above employee is used to mark attendance such that the person who has arrived latest as per time 
+has to be identified
+A stack can be used for this 
+
+Details from stack are retrieved and sent to a hash table marking no of times a person was present in a month ,by counting 
+one value from each stack
+Employee is present ,if he found in stack ,else absent
+A separate stack can be created for each day by using a Stack array (1 for each day ,means an array of 30 or 31)
+
+create  the above program
+
+

@@ -1,0 +1,96 @@
+Problem Statement: Parentheses Matching
+Objective: Write a function to determine if the parentheses in a given string are balanced.
+ 
+Description: In programming, it is crucial to ensure that parentheses, brackets, and braces are correctly matched and nested. Your task is to implement a function that checks if a string containing various types of parentheses is balanced. A string is considered balanced if:
+
+Every opening parenthesis has a corresponding closing parenthesis.
+The parentheses are correctly nested.
+Types of Parentheses: The types of parentheses to consider are:
+
+Round brackets: ()
+Curly braces: {}
+Square brackets: []
+Function Signature:
+
+
+bool is_balanced(s: str) 
+Input:
+
+A single string s (1 ≤ |s| ≤ 10^4), which may contain characters including the parentheses mentioned above.
+Output:
+
+Return True if the string is balanced, and False otherwise.
+Examples:
+
+Input: s = "([]{})"
+Output: True
+Input: s = "([)]"
+Output: False
+Input: s = "{[()]}"
+Output: True
+Input: s = "((()))"
+Output: True
+Input: s = "((())"
+Output: False
+Additional Notes:
+
+Consider edge cases, such as an empty string, which should return True.
+Ensure your solution is efficient, as the length of the string can be up to 10,000 characters.
+
+
+======================================================================================
+
+Problem Statement: Bullet Queue for a Shooting Game
+In a shooting game, the player has a limited number of bullets that can be fired in a sequence. The bullets are managed using a queue data structure, where the first bullet loaded is the first one to be fired (FIFO - First In, First Out).
+
+Requirements:
+Bullet Queue:
+
+Implement a queue using a linked list to manage the bullets.
+Each bullet has a unique identifier (e.g., bullet ID) and a damage value.
+Operations:
+
+Load Bullet: Add a new bullet to the queue.
+Fire Bullet: Remove the bullet from the front of the queue and simulate firing it. Print the bullet's ID and damage value.
+Check Reload Condition: If all bullets in the queue have been fired, the player must reload the queue with a new set of bullets.
+Reloading:
+
+When the queue is empty (i.e., all bullets have been fired), prompt the player to reload the queue with a specified number of new bullets.
+The new bullets should be added to the queue in the order they are loaded.
+Game Simulation:
+
+Simulate the game by allowing the player to fire bullets until the queue is empty, at which point they will be prompted to reload.
+The player can specify how many bullets to load during the reload process.
+Example Interaction:
+Load Bullets:
+
+Load bullets with IDs: 1, 2, 3, 4, 5, each with a damage value of 10.
+Fire Bullets:
+
+Fire the bullets in the order they were loaded:
+Fire Bullet 1 (Damage: 10)
+Fire Bullet 2 (Damage: 10)
+Fire Bullet 3 (Damage: 10)
+Fire Bullet 4 (Damage: 10)
+Fire Bullet 5 (Damage: 10)
+Reload:
+
+After firing all bullets, prompt the player to reload:
+"All bullets fired! Please reload the queue with how many bullets?"
+Player inputs: 3
+Load bullets with IDs: 6, 7, 8, each with a damage value of 10.
+Continue Firing:
+
+Fire the newly loaded bullets:
+Fire Bullet 6 (Damage: 10)
+Fire Bullet 7 (Damage: 10)
+Fire Bullet 8 (Damage: 10)
+Implementation Guidelines:
+Use a linked list to implement the queue for bullets.
+Create a Bullet class to represent each bullet with properties like ID and damage.
+Create a BulletQueue class to manage the queue operations (enqueue, dequeue, check if empty).
+Implement a main method to simulate the game interaction as described.
+
+
+
+

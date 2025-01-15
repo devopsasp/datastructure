@@ -1,0 +1,41 @@
+Problem Statement: Word Frequency Counter
+Objective: Create an algorithm that takes a block of text as input and computes the frequency of each word in that text. The results should be stored in a data structure where each unique word is a key, and its corresponding frequency is the value.
+
+Requirements:
+Input:
+
+A string representing a block of text. The text may contain punctuation, special characters, and varying cases (uppercase and lowercase).
+Output:
+
+A data structure (e.g., a hash table or dictionary) that contains:
+Key: Each unique word from the text.
+Value: The frequency of that word in the text.
+Considerations:
+
+Normalize the text by converting all characters to lowercase to ensure that "Word" and "word" are counted as the same word.
+Ignore punctuation and special characters when counting words.
+Handle edge cases such as:
+Empty strings.
+Text with no words (only punctuation).
+Words that appear multiple times.
+Example:
+
+Input: "Hello, world! Hello everyone. Welcome to the world of programming."
+Output:
+plaintext
+
+Verify
+
+Open In Editor
+Edit
+Copy code
+{
+  "hello": 2,
+  "world": 2,
+  "everyone": 1,
+  "welcome": 1,
+  "to": 1,
+  "the": 1,
+  "of": 1,
+  "programming": 1
+}
